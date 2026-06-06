@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Services | VAIBHAV Portfolio</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Inter',sans-serif;
+}
+
+body{
+background:#0B0F19;
+color:#fff;
+overflow-x:hidden;
+}
+
+/* NAVBAR */
+
+nav{
+position:fixed;
+top:0;
+width:100%;
+padding:22px 8%;
+display:flex;
+justify-content:space-between;
+align-items:center;
+background:rgba(11,15,25,.8);
+backdrop-filter:blur(20px);
+border-bottom:1px solid rgba(255,255,255,.05);
+z-index:999;
+}
+
+.logo{
+font-size:28px;
+font-weight:800;
+background:linear-gradient(90deg,#4F8CFF,#7C3AED);
+-webkit-background-clip:text;
+-webkit-text-fill-color:transparent;
+}
+
+nav ul{
+display:flex;
+gap:40px;
+list-style:none;
+}
+
+nav a{
+color:#fff;
+text-decoration:none;
+transition:.3s;
+}
+
+nav a:hover,
+.active{
+color:#4F8CFF;
+}
+
+.btn{
+padding:12px 28px;
+border:none;
+border-radius:50px;
+background:linear-gradient(90deg,#4F8CFF,#7C3AED);
+color:#fff;
+font-weight:600;
+cursor:pointer;
+}
+
+/* HERO */
+
+.hero{
+padding:180px 8% 100px;
+text-align:center;
+position:relative;
+}
+
+.blur{
+position:absolute;
+width:350px;
+height:350px;
+border-radius:50%;
+filter:blur(120px);
+opacity:.4;
+z-index:-1;
+}
+
+.blur1{
+background:#4F8CFF;
+left:-100px;
+top:50px;
+}
+
+.blur2{
+background:#7C3AED;
+right:-100px;
+top:80px;
+}
+
+.hero h1{
+font-size:72px;
+margin-bottom:20px;
+}
+
+.hero p{
+max-width:750px;
+margin:auto;
+line-height:1.8;
+color:#9CA3AF;
+font-size:18px;
+}
+
+/* SERVICES */
+
+.services{
+padding:0 8% 120px;
+}
+
+.section-title{
+font-size:52px;
+text-align:center;
+margin-bottom:60px;
+}
+
+.service-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+gap:30px;
+}
+
+.service-card{
+background:rgba(255,255,255,.04);
+border:1px solid rgba(255,255,255,.05);
+padding:40px;
+border-radius:30px;
+transition:.4s;
+backdrop-filter:blur(20px);
+}
+
+.service-card:hover{
+transform:translateY(-10px);
+border-color:#4F8CFF;
+}
+
+.service-icon{
+font-size:50px;
+margin-bottom:20px;
+}
+
+.service-card h3{
+font-size:28px;
+margin-bottom:15px;
+}
+
+.service-card p{
+color:#9CA3AF;
+line-height:1.8;
+margin-bottom:20px;
+}
+
+.service-card ul{
+list-style:none;
+}
+
+.service-card ul li{
+padding:8px 0;
+color:#d1d5db;
+}
+
+/* PROCESS */
+
+.process{
+padding:120px 8%;
+}
+
+.process-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:30px;
+}
+
+.process-card{
+padding:35px;
+border-radius:25px;
+background:rgba(255,255,255,.04);
+border:1px solid rgba(255,255,255,.05);
+text-align:center;
+transition:.4s;
+}
+
+.process-card:hover{
+transform:translateY(-10px);
+border-color:#4F8CFF;
+}
+
+.number{
+font-size:42px;
+font-weight:800;
+background:linear-gradient(90deg,#4F8CFF,#7C3AED);
+-webkit-background-clip:text;
+-webkit-text-fill-color:transparent;
+margin-bottom:15px;
+}
+
+/* PRICING */
+
+.pricing{
+padding:120px 8%;
+}
+
+.price-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+gap:30px;
+}
+
+.price-card{
+padding:40px;
+border-radius:30px;
+background:rgba(255,255,255,.04);
+border:1px solid rgba(255,255,255,.05);
+text-align:center;
+transition:.4s;
+}
+
+.price-card:hover{
+transform:translateY(-10px);
+border-color:#4F8CFF;
+}
+
+.price{
+font-size:48px;
+font-weight:800;
+margin:20px 0;
+}
+
+.price-card ul{
+list-style:none;
+margin:25px 0;
+}
+
+.price-card li{
+padding:10px 0;
+color:#d1d5db;
+}
+
+/* CTA */
+
+.cta{
+padding:120px 8%;
+}
+
+.cta-box{
+padding:80px;
+border-radius:35px;
+text-align:center;
+background:linear-gradient(
+135deg,
+rgba(79,140,255,.12),
+rgba(124,58,237,.12)
+);
+border:1px solid rgba(255,255,255,.05);
+}
+
+.cta-box h2{
+font-size:56px;
+margin-bottom:20px;
+}
+
+.cta-box p{
+max-width:700px;
+margin:auto;
+line-height:1.8;
+color:#9CA3AF;
+margin-bottom:35px;
+}
+
+/* FOOTER */
+
+footer{
+padding:40px;
+text-align:center;
+border-top:1px solid rgba(255,255,255,.05);
+color:#9CA3AF;
+}
+
+/* MOBILE */
+
+@media(max-width:991px){
+
+nav ul{
+display:none;
+}
+
+.hero h1{
+font-size:50px;
+}
+
+.section-title{
+font-size:40px;
+}
+
+.cta-box{
+padding:50px 25px;
+}
+
+.cta-box h2{
+font-size:38px;
+}
+
+}
+
+</style>
+</head>
+
+<body>
+
+<nav>
+
+<div class="logo">KRION</div>
+
+<ul>
+<li><a href="#">Home</a></li>
+<li><a href="file:///D:/web-site/ABAUT%20ME/.HTML">About</a></li>
+<li><a href="#">Projects</a></li>
+<li><a href="#" class="active">Services</a></li>
+<li><a href="#">Contact</a></li>
+</ul>
+
+<button class="btn">Hire Me</button>
+
+</nav>
+
+<section class="hero">
+
+<div class="blur blur1"></div>
+<div class="blur blur2"></div>
+
+<h1>My Services</h1>
+
+<p>
+Helping brands and businesses create modern digital experiences through
+UI/UX Design, Graphic Design and Branding Solutions.
+</p>
+
+</section>
+
+<section class="services">
+
+<h2 class="section-title">What I Offer</h2>
+
+<div class="service-grid">
+
+<div class="service-card">
+<div class="service-icon">🎨</div>
+<h3>UI/UX Design</h3>
+<p>Modern interfaces focused on usability and visual excellence.</p>
+<ul>
+<li>✓ Website UI Design</li>
+<li>✓ Mobile App Design</li>
+<li>✓ Wireframing</li>
+<li>✓ Prototyping</li>
+</ul>
+</div>
+
+<div class="service-card">
+<div class="service-icon">🖌️</div>
+<h3>Graphic Design</h3>
+<p>Creative visual designs that strengthen brand identity.</p>
+<ul>
+<li>✓ Social Media Posts</li>
+<li>✓ Posters & Banners</li>
+<li>✓ Marketing Creatives</li>
+<li>✓ Print Design</li>
+</ul>
+</div>
+
+<div class="service-card">
+<div class="service-icon">🚀</div>
+<h3>Brand Identity</h3>
+<p>Complete branding systems for modern businesses.</p>
+<ul>
+<li>✓ Logo Design</li>
+<li>✓ Brand Guidelines</li>
+<li>✓ Typography System</li>
+<li>✓ Color Palette</li>
+</ul>
+</div>
+
+</div>
+
+</section>
+
+<section class="process">
+
+<h2 class="section-title">My Process</h2>
+
+<div class="process-grid">
+
+<div class="process-card">
+<div class="number">01</div>
+<h3>Research</h3>
+<p>Understanding user needs and project goals.</p>
+</div>
+
+<div class="process-card">
+<div class="number">02</div>
+<h3>Wireframe</h3>
+<p>Creating structure and user flow.</p>
+</div>
+
+<div class="process-card">
+<div class="number">03</div>
+<h3>Design</h3>
+<p>Building visually appealing interfaces.</p>
+</div>
+
+<div class="process-card">
+<div class="number">04</div>
+<h3>Delivery</h3>
+<p>Providing final optimized design assets.</p>
+</div>
+
+</div>
+
+</section>
+
+<section class="pricing">
+
+<h2 class="section-title">Packages</h2>
+
+<div class="price-grid">
+
+<div class="price-card">
+<h3>Basic</h3>
+<div class="price">₹5K+</div>
+<ul>
+<li>Landing Page UI</li>
+<li>Basic Branding</li>
+<li>1 Revision</li>
+</ul>
+<button class="btn">Choose Plan</button>
+</div>
+
+<div class="price-card">
+<h3>Professional</h3>
+<div class="price">₹15K+</div>
+<ul>
+<li>Complete Website UI</li>
+<li>Brand Identity</li>
+<li>3 Revisions</li>
+</ul>
+<button class="btn">Choose Plan</button>
+</div>
+
+<div class="price-card">
+<h3>Premium</h3>
+<div class="price">₹30K+</div>
+<ul>
+<li>Full UI/UX Solution</li>
+<li>Advanced Branding</li>
+<li>Unlimited Revisions</li>
+</ul>
+<button class="btn">Choose Plan</button>
+</div>
+
+</div>
+
+</section>
+
+<section class="cta">
+
+<div class="cta-box">
+
+<h2>Let's Build Your Next Project</h2>
+
+<p>
+Ready to transform your ideas into modern digital experiences?
+Let's work together.
+</p>
+
+<button class="btn">Start a Project</button>
+
+</div>
+
+</section>
+
+<footer>
+© 2026 vaibhav Portfolio Website. All Rights Reserved.
+</footer>
+
+</body>
+</html>
