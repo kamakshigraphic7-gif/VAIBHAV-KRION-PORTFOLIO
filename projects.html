@@ -1,0 +1,667 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Projects | VAIBHAV  Portfolio</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Inter',sans-serif;
+scroll-behavior:smooth;
+}
+
+body{
+background:#0B0F19;
+color:white;
+overflow-x:hidden;
+}
+
+/* NAVBAR */
+
+nav{
+width:100%;
+padding:22px 8%;
+display:flex;
+justify-content:space-between;
+align-items:center;
+position:fixed;
+top:0;
+z-index:1000;
+backdrop-filter:blur(20px);
+background:rgba(11,15,25,0.7);
+border-bottom:1px solid rgba(255,255,255,0.05);
+}
+
+.logo{
+font-size:28px;
+font-weight:700;
+background:linear-gradient(90deg,#4F8CFF,#7C3AED);
+-webkit-background-clip:text;
+-webkit-text-fill-color:transparent;
+}
+
+nav ul{
+display:flex;
+gap:40px;
+list-style:none;
+}
+
+nav ul li a{
+text-decoration:none;
+color:white;
+font-size:15px;
+transition:.3s;
+}
+
+nav ul li a:hover,
+.active{
+color:#4F8CFF;
+}
+
+.contact-btn{
+padding:12px 28px;
+border:none;
+border-radius:50px;
+background:linear-gradient(90deg,#4F8CFF,#7C3AED);
+color:white;
+font-weight:600;
+cursor:pointer;
+transition:.4s;
+}
+
+.contact-btn:hover{
+transform:translateY(-3px);
+box-shadow:0 10px 30px rgba(79,140,255,.3);
+}
+
+/* HERO */
+
+.project-hero{
+padding:180px 8% 100px;
+text-align:center;
+position:relative;
+}
+
+.blur1,
+.blur2{
+position:absolute;
+width:350px;
+height:350px;
+border-radius:50%;
+filter:blur(120px);
+z-index:-1;
+}
+
+.blur1{
+background:#4F8CFF;
+top:50px;
+left:-100px;
+opacity:.4;
+}
+
+.blur2{
+background:#7C3AED;
+right:-100px;
+top:100px;
+opacity:.4;
+}
+
+.project-hero h1{
+font-size:72px;
+margin-bottom:20px;
+}
+
+.project-hero p{
+max-width:700px;
+margin:auto;
+font-size:18px;
+line-height:1.8;
+color:#9CA3AF;
+}
+
+/* FILTER BUTTONS */
+
+.filters{
+display:flex;
+justify-content:center;
+gap:20px;
+flex-wrap:wrap;
+margin-top:50px;
+}
+
+.filter-btn{
+padding:14px 28px;
+border-radius:50px;
+border:1px solid rgba(255,255,255,0.08);
+background:rgba(255,255,255,0.04);
+color:white;
+cursor:pointer;
+transition:.4s;
+backdrop-filter:blur(20px);
+}
+
+.filter-btn:hover,
+.filter-btn.active{
+background:linear-gradient(90deg,#4F8CFF,#7C3AED);
+border:none;
+transform:translateY(-4px);
+}
+
+/* PROJECT GRID */
+
+.projects-section{
+padding:0 8% 120px;
+}
+
+.projects-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(350px,1fr));
+gap:35px;
+}
+
+/* PROJECT CARD */
+
+.project-card{
+position:relative;
+overflow:hidden;
+border-radius:30px;
+background:rgba(255,255,255,0.04);
+border:1px solid rgba(255,255,255,0.05);
+transition:.5s;
+cursor:pointer;
+}
+
+.project-card:hover{
+transform:translateY(-10px);
+border-color:#4F8CFF;
+box-shadow:0 20px 50px rgba(0,0,0,0.4);
+}
+
+.project-image{
+position:relative;
+overflow:hidden;
+}
+
+.project-image img{
+width:100%;
+height:260px;
+object-fit:cover;
+transition:.6s;
+display:block;
+}
+
+.project-card:hover img{
+transform:scale(1.08);
+}
+
+/* OVERLAY */
+
+.overlay{
+position:absolute;
+inset:0;
+background:linear-gradient(to top,rgba(11,15,25,.95),transparent);
+display:flex;
+align-items:flex-end;
+padding:30px;
+opacity:0;
+transition:.5s;
+}
+
+.project-card:hover .overlay{
+opacity:1;
+}
+
+.overlay button{
+padding:12px 24px;
+border:none;
+border-radius:50px;
+background:linear-gradient(90deg,#4F8CFF,#7C3AED);
+color:white;
+font-weight:600;
+cursor:pointer;
+}
+
+/* CONTENT */
+
+.project-content{
+padding:30px;
+}
+
+.project-tag{
+display:inline-block;
+padding:8px 18px;
+border-radius:50px;
+font-size:13px;
+background:rgba(79,140,255,0.12);
+color:#4F8CFF;
+margin-bottom:20px;
+}
+
+.project-content h3{
+font-size:30px;
+margin-bottom:15px;
+}
+
+.project-content p{
+color:#9CA3AF;
+line-height:1.8;
+margin-bottom:25px;
+}
+
+/* TOOLS */
+
+.tools{
+display:flex;
+gap:12px;
+flex-wrap:wrap;
+}
+
+.tools span{
+padding:8px 16px;
+background:rgba(255,255,255,0.05);
+border-radius:50px;
+font-size:13px;
+color:#d1d5db;
+}
+
+/* CTA SECTION */
+
+.cta{
+margin:120px 8%;
+padding:80px;
+border-radius:40px;
+background:linear-gradient(135deg,
+rgba(79,140,255,.15),
+rgba(124,58,237,.15));
+text-align:center;
+border:1px solid rgba(255,255,255,0.05);
+backdrop-filter:blur(20px);
+}
+
+.cta h2{
+font-size:54px;
+margin-bottom:20px;
+}
+
+.cta p{
+max-width:700px;
+margin:auto;
+color:#9CA3AF;
+line-height:1.8;
+margin-bottom:40px;
+}
+
+.cta button{
+padding:18px 40px;
+border:none;
+border-radius:50px;
+background:linear-gradient(90deg,#4F8CFF,#7C3AED);
+color:white;
+font-size:16px;
+font-weight:600;
+cursor:pointer;
+transition:.4s;
+}
+
+.cta button:hover{
+transform:translateY(-5px);
+}
+
+/* FOOTER */
+
+footer{
+padding:40px 8%;
+border-top:1px solid rgba(255,255,255,0.05);
+display:flex;
+justify-content:space-between;
+flex-wrap:wrap;
+gap:20px;
+color:#9CA3AF;
+}
+
+.socials{
+display:flex;
+gap:20px;
+}
+
+.socials a{
+text-decoration:none;
+color:#9CA3AF;
+transition:.3s;
+}
+
+.socials a:hover{
+color:#4F8CFF;
+}
+
+/* RESPONSIVE */
+
+@media(max-width:991px){
+
+nav ul{
+display:none;
+}
+
+.project-hero h1{
+font-size:50px;
+}
+
+.cta{
+padding:50px 30px;
+}
+
+.cta h2{
+font-size:38px;
+}
+
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+
+<nav>
+
+<div class="logo">KRION</div>
+
+<ul>
+<li><a href="file:///D:/web-site/HOME%20PAGE/.html">Home</a></li>
+<li><a href="#">About</a></li>
+<li><a href="#">Projects</a></li>
+<li><a href="#">Services</a></li>
+<li><a href="#">Contact</a></li>
+</ul>
+
+<button class="contact-btn">Hire Me</button>
+
+</nav>
+
+<!-- HERO -->
+
+<section class="project-hero">
+
+<div class="blur1"></div>
+<div class="blur2"></div>
+
+<h1>My Projects</h1>
+
+<p>
+A collection of modern UI/UX, branding and graphic design projects
+crafted with creativity, strategy and premium user experience.
+</p>
+
+<div class="filters">
+
+<button class="filter-btn active">All</button>
+<button class="filter-btn">UI/UX</button>
+<button class="filter-btn">Branding</button>
+<button class="filter-btn">Graphic Design</button>
+
+</div>
+
+</section>
+
+<!-- PROJECTS -->
+
+<section class="projects-section">
+
+<div class="projects-grid">
+
+<!-- CARD 1 -->
+
+<div class="project-card">
+
+<div class="project-image">
+
+<img src="https://images.unsplash.com/photo-1558655146-9f40138edfeb">
+
+<div class="overlay">
+<button>View Case Study</button>
+</div>
+
+</div>
+
+<div class="project-content">
+
+<div class="project-tag">Brand Identity</div>
+
+<h3>BiteBuzz</h3>
+
+<p>
+Modern snack brand identity design with premium packaging,
+social media and visual branding system.
+</p>
+
+<div class="tools">
+<span>Figma</span>
+<span>Photoshop</span>
+<span>Illustrator</span>
+</div>
+
+</div>
+
+</div>
+
+<!-- CARD 2 -->
+
+<div class="project-card">
+
+<div class="project-image">
+
+<img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f">
+
+<div class="overlay">
+<button>View Case Study</button>
+</div>
+
+</div>
+
+<div class="project-content">
+
+<div class="project-tag">Website UI</div>
+
+<h3>Oriaya</h3>
+
+<p>
+Luxury jewelry ecommerce website UI with minimal layouts
+and modern shopping experience.
+</p>
+
+<div class="tools">
+<span>UI/UX</span>
+<span>Figma</span>
+<span>Web Design</span>
+</div>
+
+</div>
+
+</div>
+
+<!-- CARD 3 -->
+
+<div class="project-card">
+
+<div class="project-image">
+
+<img src="https://images.unsplash.com/photo-1496171367470-9ed9a91ea931">
+
+<div class="overlay">
+<button>View Case Study</button>
+</div>
+
+</div>
+
+<div class="project-content">
+
+<div class="project-tag">Gaming UI</div>
+
+<h3>Codenest</h3>
+
+<p>
+Modern gaming website with dark futuristic interface
+and immersive user experience.
+</p>
+
+<div class="tools">
+<span>Gaming UI</span>
+<span>Figma</span>
+<span>Prototype</span>
+</div>
+
+</div>
+
+</div>
+
+<!-- CARD 4 -->
+
+<div class="project-card">
+
+<div class="project-image">
+
+<img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3">
+
+<div class="overlay">
+<button>View Case Study</button>
+</div>
+
+</div>
+
+<div class="project-content">
+
+<div class="project-tag">Mobile App</div>
+
+<h3>Fintech App</h3>
+
+<p>
+Clean mobile banking app interface with smooth UX,
+dashboard and financial analytics.
+</p>
+
+<div class="tools">
+<span>Mobile UI</span>
+<span>UX</span>
+<span>Prototype</span>
+</div>
+
+</div>
+
+</div>
+
+<!-- CARD 5 -->
+
+<div class="project-card">
+
+<div class="project-image">
+
+<img src="https://images.unsplash.com/photo-1522542550221-31fd19575a2d">
+
+<div class="overlay">
+<button>View Case Study</button>
+</div>
+
+</div>
+
+<div class="project-content">
+
+<div class="project-tag">Branding</div>
+
+<h3>Swagger</h3>
+
+<p>
+Entertainment website branding with modern typography,
+dark UI and premium visual direction.
+</p>
+
+<div class="tools">
+<span>Branding</span>
+<span>Visual Design</span>
+<span>UI Design</span>
+</div>
+
+</div>
+
+</div>
+
+<!-- CARD 6 -->
+
+<div class="project-card">
+
+<div class="project-image">
+
+<img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085">
+
+<div class="overlay">
+<button>View Case Study</button>
+</div>
+
+</div>
+
+<div class="project-content">
+
+<div class="project-tag">Government UI</div>
+
+<h3>Bharat Seva</h3>
+
+<p>
+Professional government service portal UI focused on
+clarity, accessibility and clean experience.
+</p>
+
+<div class="tools">
+<span>Dashboard</span>
+<span>UI/UX</span>
+<span>Research</span>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- CTA -->
+
+<section class="cta">
+
+<h2>Let's Build Something Amazing</h2>
+
+<p>
+Available for freelance projects, UI/UX design,
+branding and creative collaborations worldwide.
+</p>
+
+<button>Start Project</button>
+
+</section>
+
+<!-- FOOTER -->
+
+<footer>
+
+<p>© 2026 Kamakshi Portfolio Website</p>
+
+<div class="socials">
+<a href="#">Behance</a>
+<a href="#">Dribbble</a>
+<a href="#">LinkedIn</a>
+<a href="#">Instagram</a>
+</div>
+
+</footer>
+
+</body>
+</html>

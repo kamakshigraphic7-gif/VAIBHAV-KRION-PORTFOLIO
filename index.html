@@ -1,0 +1,548 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>VAIBHAV Portfolio</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Inter',sans-serif;
+scroll-behavior:smooth;
+}
+
+body{
+background:#0B0F19;
+color:white;
+overflow-x:hidden;
+}
+
+/* NAVBAR */
+
+nav{
+width:100%;
+padding:22px 8%;
+display:flex;
+justify-content:space-between;
+align-items:center;
+position:fixed;
+top:0;
+z-index:1000;
+backdrop-filter:blur(20px);
+background:rgba(11,15,25,0.6);
+border-bottom:1px solid rgba(255,255,255,0.05);
+}
+
+.logo{
+font-size:28px;
+font-weight:700;
+background:linear-gradient(90deg,#4F8CFF,#7C3AED);
+-webkit-background-clip:text;
+-webkit-text-fill-color:transparent;
+}
+
+nav ul{
+display:flex;
+gap:40px;
+list-style:none;
+}
+
+nav ul li a{
+text-decoration:none;
+color:#fff;
+font-size:15px;
+transition:.3s;
+}
+
+nav ul li a:hover{
+color:#4F8CFF;
+}
+
+.hire-btn{
+padding:12px 28px;
+background:linear-gradient(90deg,#4F8CFF,#7C3AED);
+border:none;
+border-radius:50px;
+color:white;
+font-weight:600;
+cursor:pointer;
+transition:.4s;
+}
+
+.hire-btn:hover{
+transform:translateY(-3px);
+box-shadow:0 10px 30px rgba(79,140,255,.3);
+}
+
+/* HERO */
+
+.hero{
+min-height:100vh;
+display:flex;
+align-items:center;
+justify-content:space-between;
+padding:0 8%;
+position:relative;
+}
+
+.hero-text{
+max-width:600px;
+}
+
+.hero-text span{
+color:#4F8CFF;
+font-size:18px;
+}
+
+.hero-text h1{
+font-size:82px;
+line-height:1.1;
+margin-top:10px;
+}
+
+.hero-text h2{
+font-size:32px;
+color:#9CA3AF;
+margin-top:10px;
+}
+
+.hero-text p{
+margin-top:25px;
+font-size:17px;
+line-height:1.8;
+color:#9CA3AF;
+}
+
+.hero-buttons{
+margin-top:40px;
+display:flex;
+gap:20px;
+}
+
+.btn{
+padding:16px 34px;
+border-radius:50px;
+text-decoration:none;
+font-weight:600;
+transition:.4s;
+}
+
+.primary{
+background:linear-gradient(90deg,#4F8CFF,#7C3AED);
+color:white;
+}
+
+.secondary{
+border:1px solid rgba(255,255,255,0.1);
+color:white;
+}
+
+.btn:hover{
+transform:translateY(-5px);
+}
+
+/* HERO IMAGE */
+
+.hero-image{
+position:relative;
+}
+
+.circle{
+width:450px;
+height:450px;
+background:linear-gradient(90deg,#4F8CFF,#7C3AED);
+border-radius:50%;
+filter:blur(120px);
+position:absolute;
+z-index:-1;
+}
+
+.mockup{
+width:450px;
+border-radius:30px;
+animation:float 4s ease-in-out infinite;
+box-shadow:0 20px 60px rgba(0,0,0,0.4);
+}
+
+@keyframes float{
+0%{transform:translateY(0);}
+50%{transform:translateY(-20px);}
+100%{transform:translateY(0);}
+}
+
+/* SECTION */
+
+section{
+padding:120px 8%;
+}
+
+.section-title{
+font-size:48px;
+margin-bottom:60px;
+text-align:center;
+}
+
+/* SERVICES */
+
+.services{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+gap:30px;
+}
+
+.card{
+background:rgba(255,255,255,0.04);
+padding:40px;
+border-radius:30px;
+border:1px solid rgba(255,255,255,0.05);
+transition:.4s;
+backdrop-filter:blur(20px);
+}
+
+.card:hover{
+transform:translateY(-10px);
+border-color:#4F8CFF;
+}
+
+.card h3{
+font-size:28px;
+margin-bottom:20px;
+}
+
+.card p{
+color:#9CA3AF;
+line-height:1.8;
+}
+
+/* PROJECTS */
+
+.projects{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(350px,1fr));
+gap:30px;
+}
+
+.project-card{
+position:relative;
+overflow:hidden;
+border-radius:30px;
+cursor:pointer;
+}
+
+.project-card img{
+width:100%;
+display:block;
+transition:.5s;
+}
+
+.project-card:hover img{
+transform:scale(1.1);
+}
+
+.overlay{
+position:absolute;
+inset:0;
+background:linear-gradient(to top,rgba(0,0,0,.9),transparent);
+display:flex;
+flex-direction:column;
+justify-content:flex-end;
+padding:30px;
+opacity:0;
+transition:.4s;
+}
+
+.project-card:hover .overlay{
+opacity:1;
+}
+
+.overlay h4{
+font-size:28px;
+margin-bottom:10px;
+}
+
+/* CONTACT */
+
+.contact-box{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(350px,1fr));
+gap:50px;
+}
+
+.contact-form input,
+.contact-form textarea{
+width:100%;
+padding:18px;
+margin-bottom:20px;
+background:rgba(255,255,255,0.05);
+border:none;
+border-radius:16px;
+color:white;
+outline:none;
+}
+
+.contact-form textarea{
+height:150px;
+resize:none;
+}
+
+.submit-btn{
+width:100%;
+padding:18px;
+border:none;
+border-radius:16px;
+background:linear-gradient(90deg,#4F8CFF,#7C3AED);
+color:white;
+font-size:16px;
+font-weight:600;
+cursor:pointer;
+}
+
+/* FOOTER */
+
+footer{
+padding:40px 8%;
+text-align:center;
+border-top:1px solid rgba(255,255,255,0.05);
+color:#9CA3AF;
+}
+
+/* RESPONSIVE */
+
+@media(max-width:991px){
+
+.hero{
+flex-direction:column;
+padding-top:140px;
+text-align:center;
+}
+
+.hero-text h1{
+font-size:56px;
+}
+
+.hero-image{
+margin-top:60px;
+}
+
+.mockup{
+width:100%;
+max-width:400px;
+}
+
+nav ul{
+display:none;
+}
+
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+
+<nav>
+
+<div class="logo">KRION</div>
+
+<ul>
+<li><a href="file:///D:/web-site/HOME%20PAGE/.html">Home</a></li>
+<li><a href="file:///D:/web-site/ABAUT%20ME/.HTML">About</a></li>
+<li><a href="file:///D:/web-site/PROJECT%20MENU/.HTML">Services</a></li>
+<li><a href="file:///D:/web-site/PROJECT%20MENU/.HTML">Projects</a></li>
+<li><a href="file:///D:/web-site/contact%20page/.html">Contact</a></li>
+</ul>
+
+<button class="hire-btn">Hire Me</button>
+
+</nav>
+
+<!-- HERO -->
+
+<section class="hero">
+
+<div class="hero-text">
+
+<span>👋 Hello I'm</span>
+
+<h1>VAIBHAV CHAVAN</h1>
+
+<h2>UI/UX & Graphic Designer</h2>
+
+<p>
+I create modern digital experiences through clean UI/UX design,
+branding and visually engaging interfaces.
+</p>
+
+<div class="hero-buttons">
+
+<a href="#" class="btn primary">View Projects</a>
+
+<a href="#" class="btn secondary">Download CV</a>
+
+</div>
+
+</div>
+
+<div class="hero-image">
+
+<div class="circle"></div>
+
+<img src="https://img.freepik.com/premium-psd/man-working-desk-with-computer-video-call_326992-218.jpg"
+class="mockup">
+
+</div>
+
+</section>
+
+<!-- SERVICES -->
+
+<section>
+
+<h2 class="section-title">Services</h2>
+
+<div class="services">
+
+<div class="card">
+<h3>UI/UX Design</h3>
+<p>
+Modern website design, mobile app UI,
+wireframing and prototyping.
+</p>
+</div>
+
+<div class="card">
+<h3>Graphic Design</h3>
+<p>
+Social media posts, branding,
+posters and digital creatives.
+</p>
+</div>
+
+<div class="card">
+<h3>Brand Identity</h3>
+<p>
+Logo design, color systems and
+modern visual identity creation.
+</p>
+</div>
+
+</div>
+
+</section>
+
+<!-- PROJECTS -->
+
+<section>
+
+<h2 class="section-title">Projects</h2>
+
+<div class="projects">
+
+<div class="project-card">
+
+<img src="https://images.unsplash.com/photo-1558655146-9f40138edfeb">
+
+<div class="overlay">
+<h4>BiteBuzz</h4>
+<p>Brand Identity Design</p>
+</div>
+
+</div>
+
+<div class="project-card">
+
+<img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f">
+
+<div class="overlay">
+<h4>Oriaya</h4>
+<p>Jewelry Website UI</p>
+</div>
+
+</div>
+
+<div class="project-card">
+
+<img src="https://images.unsplash.com/photo-1496171367470-9ed9a91ea931">
+
+<div class="overlay">
+<h4>Codenest</h4>
+<p>Gaming Website Design</p>
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- CONTACT -->
+
+<section>
+
+<h2 class="section-title">Contact Me</h2>
+
+<div class="contact-box">
+
+<div>
+<h3 style="font-size:38px;margin-bottom:20px;">
+Let's Work Together
+</h3>
+
+<p style="color:#9CA3AF;line-height:1.8;">
+Available for freelance projects,
+UI/UX design and branding work.
+</p>
+</div>
+
+<div class="contact-form">
+
+<input type="text" placeholder="Your Name">
+
+<input type="email" placeholder="Your Email">
+
+<textarea placeholder="Message"></textarea>
+
+<button class="submit-btn">
+Send Message
+</button>
+
+</div>
+
+</div>
+
+</section>
+
+<footer>
+
+© 2026 VAIBHAV Portfolio Website
+
+</footer>
+
+<script>
+
+// SCROLL EFFECT
+
+window.addEventListener("scroll",function(){
+
+const nav=document.querySelector("nav");
+
+nav.style.background=window.scrollY>50
+? "rgba(11,15,25,0.9)"
+: "rgba(11,15,25,0.6)";
+
+});
+
+</script>
+
+</body>
+</html>
